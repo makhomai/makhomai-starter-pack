@@ -8,6 +8,8 @@ You can write your bot in the `starter_bots` folder. When submitting make a zip 
 
 Each starter bot contains a `./play_one_game.sh` that runs your bot against a couple of others from the `sample_bots` folder. Feel free to pick a different map or bot (perhaps even your old bots) by changing the script.
 
+Use `./play_one_game.sh "python starter_bots/python/MyBot.py"` to run a game.
+
 ## Submitting your bot
 
 Upload the created zip file onto the website to start competing.
