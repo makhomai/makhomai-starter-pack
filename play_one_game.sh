@@ -8,7 +8,7 @@
     -verbose \
     -log_error \
     -log_dir game_logs \
-    -verbose \
+    -debug \
     -maxturns 200 \
     -mapfile maps/maze/maze_04p_01.map \
     "$@" \
