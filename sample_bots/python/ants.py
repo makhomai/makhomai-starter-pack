@@ -6,7 +6,7 @@ import random
 try:
     from sys import maxsize
 except ImportError:
-    from sys import maxsize as maxint
+    from sys import maxsize
         
 MY_ANT = 0
 ANTS = 0
@@ -196,7 +196,7 @@ class Ants():
 
     def closest_food(self,row1,col1,filter=None):
         #find the closest food from this row/col
-        min_dist=maxint
+        min_dist=maxsize
         closest_food = None
         for food in self.food_list:
             if filter is None or food not in filter:
@@ -208,7 +208,7 @@ class Ants():
 
     def closest_enemy_ant(self,row1,col1,filter=None):
         #find the closest enemy ant from this row/col
-        min_dist=maxint
+        min_dist=maxsize
         closest_ant = None
         for ant in self.enemy_ants():
             if filter is None or ant not in filter:
@@ -220,7 +220,7 @@ class Ants():
 
     def closest_enemy_hill(self,row1,col1,filter=None):
         #find the closest enemy hill from this row/col
-        min_dist=maxint
+        min_dist=maxsize
         closest_hill = None
         for hill in self.enemy_hills():
             if filter is None or hill[0] not in filter:
@@ -232,7 +232,7 @@ class Ants():
 
     def closest_unseen(self,row1,col1,filter=None):
         #find the closest unseen from this row/col
-        min_dist=maxint
+        min_dist=maxsize
         closest_unseen = None
         for row in range(self.height):
             for col in range(self.width):
