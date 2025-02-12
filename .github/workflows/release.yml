@@ -1,0 +1,33 @@
+name: Create Starter Bot Releases
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  create-releases:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create Zip Files
+        run: |
+          cd starter_bots
+          for d in */ ; do
+            folder_name=${d%/}
+            cd "$folder_name"
+            zip -r "../../starter_package_${folder_name}.zip" *
+            cd ..
+          done
+
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            starter_package_*.zip
+          name: Release ${{ github.ref_name }}
+          draft: false
+          prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
